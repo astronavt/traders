@@ -1,6 +1,6 @@
 ﻿namespace TradeExchangeMonitor
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -38,21 +38,21 @@
             this.фильтрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оконИВкладокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TABULATOR = new System.Windows.Forms.TabControl();
+            this.tabTest = new System.Windows.Forms.TabPage();
+            this.SaveToFileBtn = new System.Windows.Forms.Button();
+            this.TestGraphBtn = new System.Windows.Forms.Button();
+            this.ForceCloseSessionBtn = new System.Windows.Forms.Button();
+            this.chkClearListBefore = new System.Windows.Forms.CheckBox();
+            this.GetTickHistoryBtn = new System.Windows.Forms.Button();
+            this.GetBarHistoryBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtAct = new System.Windows.Forms.TextBox();
+            this.CheckInternetConnectionBtn = new System.Windows.Forms.Button();
+            this.ForceOpenSessionBtn = new System.Windows.Forms.Button();
+            this.listBoxData = new System.Windows.Forms.ListBox();
             this.tabH = new System.Windows.Forms.TabPage();
             this.tabL = new System.Windows.Forms.TabPage();
             this.tabFilters = new System.Windows.Forms.TabPage();
-            this.tabTest = new System.Windows.Forms.TabPage();
-            this.txtAct = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listBoxData = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.chkClearListBefore = new System.Windows.Forms.CheckBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.TABULATOR.SuspendLayout();
             this.tabTest.SuspendLayout();
@@ -146,47 +146,18 @@
             this.TABULATOR.Size = new System.Drawing.Size(662, 538);
             this.TABULATOR.TabIndex = 2;
             // 
-            // tabH
-            // 
-            this.tabH.Location = new System.Drawing.Point(4, 22);
-            this.tabH.Name = "tabH";
-            this.tabH.Padding = new System.Windows.Forms.Padding(3);
-            this.tabH.Size = new System.Drawing.Size(654, 412);
-            this.tabH.TabIndex = 0;
-            this.tabH.Text = "H";
-            this.tabH.UseVisualStyleBackColor = true;
-            // 
-            // tabL
-            // 
-            this.tabL.Location = new System.Drawing.Point(4, 22);
-            this.tabL.Name = "tabL";
-            this.tabL.Padding = new System.Windows.Forms.Padding(3);
-            this.tabL.Size = new System.Drawing.Size(654, 412);
-            this.tabL.TabIndex = 1;
-            this.tabL.Text = "L";
-            this.tabL.UseVisualStyleBackColor = true;
-            // 
-            // tabFilters
-            // 
-            this.tabFilters.Location = new System.Drawing.Point(4, 22);
-            this.tabFilters.Name = "tabFilters";
-            this.tabFilters.Size = new System.Drawing.Size(654, 412);
-            this.tabFilters.TabIndex = 2;
-            this.tabFilters.Text = "tabFilters";
-            this.tabFilters.UseVisualStyleBackColor = true;
-            // 
             // tabTest
             // 
-            this.tabTest.Controls.Add(this.button7);
-            this.tabTest.Controls.Add(this.button6);
-            this.tabTest.Controls.Add(this.button5);
+            this.tabTest.Controls.Add(this.SaveToFileBtn);
+            this.tabTest.Controls.Add(this.TestGraphBtn);
+            this.tabTest.Controls.Add(this.ForceCloseSessionBtn);
             this.tabTest.Controls.Add(this.chkClearListBefore);
-            this.tabTest.Controls.Add(this.button1);
-            this.tabTest.Controls.Add(this.button4);
+            this.tabTest.Controls.Add(this.GetTickHistoryBtn);
+            this.tabTest.Controls.Add(this.GetBarHistoryBtn);
             this.tabTest.Controls.Add(this.label1);
             this.tabTest.Controls.Add(this.txtAct);
-            this.tabTest.Controls.Add(this.button3);
-            this.tabTest.Controls.Add(this.button2);
+            this.tabTest.Controls.Add(this.CheckInternetConnectionBtn);
+            this.tabTest.Controls.Add(this.ForceOpenSessionBtn);
             this.tabTest.Controls.Add(this.listBoxData);
             this.tabTest.Location = new System.Drawing.Point(4, 22);
             this.tabTest.Name = "tabTest";
@@ -195,72 +166,35 @@
             this.tabTest.Text = "TEST TAB";
             this.tabTest.UseVisualStyleBackColor = true;
             // 
-            // txtAct
+            // SaveToFileBtn
             // 
-            this.txtAct.Location = new System.Drawing.Point(462, 20);
-            this.txtAct.Name = "txtAct";
-            this.txtAct.Size = new System.Drawing.Size(100, 20);
-            this.txtAct.TabIndex = 9;
-            this.txtAct.Text = "cien";
+            this.SaveToFileBtn.Location = new System.Drawing.Point(420, 159);
+            this.SaveToFileBtn.Name = "SaveToFileBtn";
+            this.SaveToFileBtn.Size = new System.Drawing.Size(130, 50);
+            this.SaveToFileBtn.TabIndex = 15;
+            this.SaveToFileBtn.Text = "Сохранить в файл";
+            this.SaveToFileBtn.UseVisualStyleBackColor = true;
+            this.SaveToFileBtn.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button3
+            // TestGraphBtn
             // 
-            this.button3.Location = new System.Drawing.Point(375, 242);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(214, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Проверить соединение с интернетом";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.TestGraphBtn.Location = new System.Drawing.Point(395, 382);
+            this.TestGraphBtn.Name = "TestGraphBtn";
+            this.TestGraphBtn.Size = new System.Drawing.Size(167, 91);
+            this.TestGraphBtn.TabIndex = 14;
+            this.TestGraphBtn.Text = "Тестировать график";
+            this.TestGraphBtn.UseVisualStyleBackColor = true;
+            this.TestGraphBtn.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button2
+            // ForceCloseSessionBtn
             // 
-            this.button2.Location = new System.Drawing.Point(375, 271);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(214, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Принудительно открыть сессию";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // listBoxData
-            // 
-            this.listBoxData.FormattingEnabled = true;
-            this.listBoxData.Location = new System.Drawing.Point(8, 14);
-            this.listBoxData.Name = "listBoxData";
-            this.listBoxData.Size = new System.Drawing.Size(361, 225);
-            this.listBoxData.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(375, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(214, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Получить Тиковую историю";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(372, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Имя акции:";
-            // 
-            // button4
-            // 
-            this.button4.AutoSize = true;
-            this.button4.Location = new System.Drawing.Point(375, 113);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(214, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Получить Барную историю";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.ForceCloseSessionBtn.Location = new System.Drawing.Point(375, 300);
+            this.ForceCloseSessionBtn.Name = "ForceCloseSessionBtn";
+            this.ForceCloseSessionBtn.Size = new System.Drawing.Size(214, 23);
+            this.ForceCloseSessionBtn.TabIndex = 13;
+            this.ForceCloseSessionBtn.Text = "Принудительно закрыть сессию";
+            this.ForceCloseSessionBtn.UseVisualStyleBackColor = true;
+            this.ForceCloseSessionBtn.Click += new System.EventHandler(this.button5_Click);
             // 
             // chkClearListBefore
             // 
@@ -272,37 +206,103 @@
             this.chkClearListBefore.Text = "Очищать поле вывода перед действием?";
             this.chkClearListBefore.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // GetTickHistoryBtn
             // 
-            this.button5.Location = new System.Drawing.Point(375, 300);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(214, 23);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Принудительно закрыть сессию";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.GetTickHistoryBtn.AutoSize = true;
+            this.GetTickHistoryBtn.Location = new System.Drawing.Point(375, 84);
+            this.GetTickHistoryBtn.Name = "GetTickHistoryBtn";
+            this.GetTickHistoryBtn.Size = new System.Drawing.Size(214, 23);
+            this.GetTickHistoryBtn.TabIndex = 5;
+            this.GetTickHistoryBtn.Text = "Получить Тиковую историю";
+            this.GetTickHistoryBtn.UseVisualStyleBackColor = true;
+            this.GetTickHistoryBtn.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button6
+            // GetBarHistoryBtn
             // 
-            this.button6.Location = new System.Drawing.Point(395, 382);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(167, 91);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "Тестировать график";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.GetBarHistoryBtn.AutoSize = true;
+            this.GetBarHistoryBtn.Location = new System.Drawing.Point(375, 113);
+            this.GetBarHistoryBtn.Name = "GetBarHistoryBtn";
+            this.GetBarHistoryBtn.Size = new System.Drawing.Size(214, 23);
+            this.GetBarHistoryBtn.TabIndex = 11;
+            this.GetBarHistoryBtn.Text = "Получить Барную историю";
+            this.GetBarHistoryBtn.UseVisualStyleBackColor = true;
+            this.GetBarHistoryBtn.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button7
+            // label1
             // 
-            this.button7.Location = new System.Drawing.Point(420, 159);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(130, 50);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "Сохранить в файл";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(372, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Имя акции:";
             // 
-            // Form1
+            // txtAct
+            // 
+            this.txtAct.Location = new System.Drawing.Point(462, 20);
+            this.txtAct.Name = "txtAct";
+            this.txtAct.Size = new System.Drawing.Size(100, 20);
+            this.txtAct.TabIndex = 9;
+            this.txtAct.Text = "cien";
+            // 
+            // CheckInternetConnectionBtn
+            // 
+            this.CheckInternetConnectionBtn.Location = new System.Drawing.Point(375, 242);
+            this.CheckInternetConnectionBtn.Name = "CheckInternetConnectionBtn";
+            this.CheckInternetConnectionBtn.Size = new System.Drawing.Size(214, 23);
+            this.CheckInternetConnectionBtn.TabIndex = 8;
+            this.CheckInternetConnectionBtn.Text = "Проверить соединение с интернетом";
+            this.CheckInternetConnectionBtn.UseVisualStyleBackColor = true;
+            this.CheckInternetConnectionBtn.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // ForceOpenSessionBtn
+            // 
+            this.ForceOpenSessionBtn.Location = new System.Drawing.Point(375, 271);
+            this.ForceOpenSessionBtn.Name = "ForceOpenSessionBtn";
+            this.ForceOpenSessionBtn.Size = new System.Drawing.Size(214, 23);
+            this.ForceOpenSessionBtn.TabIndex = 7;
+            this.ForceOpenSessionBtn.Text = "Принудительно открыть сессию";
+            this.ForceOpenSessionBtn.UseVisualStyleBackColor = true;
+            this.ForceOpenSessionBtn.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // listBoxData
+            // 
+            this.listBoxData.FormattingEnabled = true;
+            this.listBoxData.Location = new System.Drawing.Point(8, 14);
+            this.listBoxData.Name = "listBoxData";
+            this.listBoxData.Size = new System.Drawing.Size(361, 225);
+            this.listBoxData.TabIndex = 6;
+            // 
+            // tabH
+            // 
+            this.tabH.Location = new System.Drawing.Point(4, 22);
+            this.tabH.Name = "tabH";
+            this.tabH.Padding = new System.Windows.Forms.Padding(3);
+            this.tabH.Size = new System.Drawing.Size(654, 512);
+            this.tabH.TabIndex = 0;
+            this.tabH.Text = "H";
+            this.tabH.UseVisualStyleBackColor = true;
+            // 
+            // tabL
+            // 
+            this.tabL.Location = new System.Drawing.Point(4, 22);
+            this.tabL.Name = "tabL";
+            this.tabL.Padding = new System.Windows.Forms.Padding(3);
+            this.tabL.Size = new System.Drawing.Size(654, 512);
+            this.tabL.TabIndex = 1;
+            this.tabL.Text = "L";
+            this.tabL.UseVisualStyleBackColor = true;
+            // 
+            // tabFilters
+            // 
+            this.tabFilters.Location = new System.Drawing.Point(4, 22);
+            this.tabFilters.Name = "tabFilters";
+            this.tabFilters.Size = new System.Drawing.Size(654, 512);
+            this.tabFilters.TabIndex = 2;
+            this.tabFilters.Text = "tabFilters";
+            this.tabFilters.UseVisualStyleBackColor = true;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -310,7 +310,7 @@
             this.Controls.Add(this.TABULATOR);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "TradeExchangeMonitor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -342,16 +342,16 @@
         private System.Windows.Forms.TabPage tabFilters;
         private System.Windows.Forms.TabPage tabTest;
         private System.Windows.Forms.TextBox txtAct;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CheckInternetConnectionBtn;
+        private System.Windows.Forms.Button ForceOpenSessionBtn;
         private System.Windows.Forms.ListBox listBoxData;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button GetTickHistoryBtn;
+        private System.Windows.Forms.Button GetBarHistoryBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkClearListBefore;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button ForceCloseSessionBtn;
+        private System.Windows.Forms.Button TestGraphBtn;
+        private System.Windows.Forms.Button SaveToFileBtn;
 
     }
 }

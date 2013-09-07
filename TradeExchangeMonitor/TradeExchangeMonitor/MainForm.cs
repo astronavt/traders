@@ -1,33 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using TradeExchangeMonitor.Properties;
 using System.IO;
 namespace TradeExchangeMonitor
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public static Form1 instance;
+        public static MainForm instance;
 
         delegate void AddDataDelegate(string data);
-        delegate void UpdateLoggedInStateDelegate(bool bLoggedin);
 
         public TradeChart trChart;
 
-        public Form1()
+        public MainForm()
         {
             instance = this;
             new global();
             new ActiveTickFeed();
             InitializeComponent();
             global.ServerLogin();
-
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,13 +25,15 @@ namespace TradeExchangeMonitor
             listBoxData.Items.Insert(0, DateTime.Today.ToString());
         }
 
+        /// <summary>
+        /// Функция обрабатывает пришедшие данные от сервера
+        /// </summary>
         public void AddData(string data)
-        {/*Функция обрабатывает пришедшие данные от сервера*/
-         
+        {
             if (this.listBoxData.InvokeRequired)
                 BeginInvoke(new AddDataDelegate(AddData), new object[] { data });
             else
-                this.listBoxData.Items.Insert(0,/* System.DateTime.Now.ToString() + ": " + */ data); 
+                this.listBoxData.Items.Insert(0, data); 
         }
 
         private void настройкиМониторингаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,12 +41,13 @@ namespace TradeExchangeMonitor
 
         }
 
+        /// <summary>
+        /// Вызываем все деструкторы и закрываем приложение
+        /// </summary>
         private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*Вызываем все деструкторы и закрываем приложение*/
             Application.Exit();
         }
-
 
         private void Form1_Shown(object sender, EventArgs e)
         {
@@ -65,12 +58,6 @@ namespace TradeExchangeMonitor
         {
             if (trChart == null)
             {
-                /*TradeChart a = new TradeChart();
-                tabTest.Controls.Add(a);
-                a.Left = 0;
-                a.Top = 0;
-                a.Width = 450;
-                a.Height = 350;*/
                 trChart = new TradeChart();
                 tabTest.Controls.Add(trChart);
                 trChart.Left = 0;
@@ -80,25 +67,15 @@ namespace TradeExchangeMonitor
             }
         }
 
-        private void настройкиПодключенияToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void mnuSettingsConnection_Click(object sender, EventArgs e)
         {
-            SettingsConnection frmConSet = new SettingsConnection();
+            var frmConSet = new SettingsConnection();
             frmConSet.ShowDialog();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             global.ServerLogout();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -136,10 +113,8 @@ namespace TradeExchangeMonitor
 
         private void button7_Click(object sender, EventArgs e)
         {
-            SaveFileDialog f = new SaveFileDialog();
-
+            var f = new SaveFileDialog();
             f.ShowDialog();
-
 
             string textout = "";
 
@@ -154,8 +129,5 @@ namespace TradeExchangeMonitor
 
             MessageBox.Show("all saved!");
         }
-
-
-
     }
 }

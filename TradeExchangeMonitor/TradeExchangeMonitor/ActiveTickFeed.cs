@@ -75,7 +75,7 @@ namespace TradeExchangeMonitor
                 tradeExchange + "," + tradePrice + "," + tradeSize + "," + tradeDatetime.ToString();
 
             //show on data string on the screen
-            Form1.instance.AddData(data);
+            MainForm.instance.AddData(data);
         }
 
         void feed_OnStreamQuote(string symbol, byte quoteCondition, byte bidExchange, byte askExchange, double bidPrice, double askPrice, int bidSize, int askSize, DateTime quoteDatetime)
@@ -84,7 +84,7 @@ namespace TradeExchangeMonitor
             string data = "Stream Quote: " + symbol + "," + quoteCondition + "," + bidExchange + "," + askExchange + "," + bidPrice + "," + askPrice + "," + bidSize + "," + askSize + "," + quoteDatetime.ToString();
 
             //show on data string on the screen
-            Form1.instance.AddData(data);
+            MainForm.instance.AddData(data);
         }
 
         void feed_OnStreamMarketMovers(string symbol, object records)
@@ -100,8 +100,8 @@ namespace TradeExchangeMonitor
             {
                 case Defines.ATSessionStatusType.SessionStatusConnected:
                     {
-                        Form1.instance.AddData("Session change: Connected");
-                        Form1.instance.AddData("Logging in..." + "login: " + Properties.Settings.Default["user_login_id"].ToString() + " / password: " + Properties.Settings.Default["user_pasword"].ToString());
+                        MainForm.instance.AddData("Session change: Connected");
+                        MainForm.instance.AddData("Logging in..." + "login: " + Properties.Settings.Default["user_login_id"].ToString() + " / password: " + Properties.Settings.Default["user_pasword"].ToString());
 
                         feed.SendLoginRequest(Properties.Settings.Default["user_login_id"].ToString(), Properties.Settings.Default["user_pasword"].ToString());
                     }
@@ -119,22 +119,22 @@ namespace TradeExchangeMonitor
 
         void feed_OnRequestTimeout(int originalRequestId)
         {
-            Form1.instance.AddData(string.Format("Request id {0} timed out", originalRequestId));
+            MainForm.instance.AddData(string.Format("Request id {0} timed out", originalRequestId));
         }
 
         void feed_OnQuoteStreamResponse(int originalRequestId, short streamResponseCode, short symbolStatusCode, string symbol, short currentSymbol, short totalSymbols)
         {
-            Form1.instance.AddData("Processing OnQuoteStreamResponse........");
+            MainForm.instance.AddData("Processing OnQuoteStreamResponse........");
 
             string data = "OrigRequestId:" + originalRequestId + "," + ((Defines.ATStreamResponseType)streamResponseCode).ToString();
 
             //show on data string on the screen
-            Form1.instance.AddData(data);
+            MainForm.instance.AddData(data);
         }
 
         void feed_OnQuoteDbResponse(int originalRequestId, short quoteDbResponseCode, short symbolStatusCode, string symbol, short currentSymbol, short totalSymbols, object records)
         {
-            Form1.instance.AddData("Processing OnQuoteDbResponse........");
+            MainForm.instance.AddData("Processing OnQuoteDbResponse........");
 
             string responseString = "";
 
@@ -146,7 +146,7 @@ namespace TradeExchangeMonitor
                         {
                             case Defines.ATSymbolStatus.SymbolStatusSuccess:
                                 {
-                                    Form1.instance.AddData("ATSymbolStatus: SymbolStatusSuccess");
+                                    MainForm.instance.AddData("ATSymbolStatus: SymbolStatusSuccess");
 
                                     string[] recordsArray = (string[])records;
 
@@ -160,7 +160,7 @@ namespace TradeExchangeMonitor
                                         if (dataIndex > 0)
                                         {
                                             string data = quoteFieldType.ToString() + "," + dataType.ToString() + "," + fieldStatusType.ToString() + "," + s.Substring(dataIndex + 1);
-                                            Form1.instance.AddData(data);
+                                            MainForm.instance.AddData(data);
                                         }
                                     }
 
@@ -189,7 +189,7 @@ namespace TradeExchangeMonitor
 
             //show on data string on the screen
             if (responseString.Length > 0)
-                Form1.instance.AddData(responseString);
+                MainForm.instance.AddData(responseString);
         }
 
         void feed_OnMarketMoversStreamResponse(int originalRequestId, short streamResponseCode)
@@ -199,7 +199,7 @@ namespace TradeExchangeMonitor
 
         void feed_OnMarketMoversDbResponse(int originalRequestId, short marketMoversResponseCode, string symbol, object records)
         {
-            Form1.instance.AddData("Processing OnMarketMoversDbResponse........");
+            MainForm.instance.AddData("Processing OnMarketMoversDbResponse........");
 
             if (records != null)
             {
@@ -237,10 +237,10 @@ namespace TradeExchangeMonitor
 
         void feed_OnBarHistoryResponse(int originalRequestId, short barHistoryResponseCode, string symbol, short symbolStatusCode, object records)
         {
-            Form1.instance.AddData("Processing OnBarHistoryResponse........");
+            MainForm.instance.AddData("Processing OnBarHistoryResponse........");
 
-            Form1.instance.AddData("ATBarHistoryResponseType: " + ((Defines.ATBarHistoryResponseType)barHistoryResponseCode).ToString());
-            Form1.instance.AddData("ATSymbolStatus: " + ((Defines.ATSymbolStatus)symbolStatusCode).ToString());
+            MainForm.instance.AddData("ATBarHistoryResponseType: " + ((Defines.ATBarHistoryResponseType)barHistoryResponseCode).ToString());
+            MainForm.instance.AddData("ATSymbolStatus: " + ((Defines.ATSymbolStatus)symbolStatusCode).ToString());
                if (records != null)
                             {
                                 string[] recordsArray = (string[])records;
